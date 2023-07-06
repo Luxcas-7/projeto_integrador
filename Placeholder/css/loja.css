@@ -1,6 +1,6 @@
 /* HEADER */
 header {
-    background-color:  hwb(295 0% 87%);
+    background-color:  hwb(295 51% 23%);
     padding: 10px;
     border-radius: 3px;
 
@@ -31,7 +31,7 @@ header {
   }
   
   nav ul li a:hover {
-    background-color: #f0efef;
+    background-color: hwb(295 51% 23%);
     color: #5a5454;
     border-radius: 3;
     padding: 5px;
@@ -89,7 +89,7 @@ header {
     outline: 0;
     color: rgb(100, 5, 45);
     border: 0px;
-    background-color: #f7e4f7;
+    background-color: hwb(295 51% 23%);
     text-align: center;
     cursor: pointer;
     width: 100%;
