@@ -15,7 +15,7 @@ html{
 }
 
 .menu li a {
-  display: block; /* Define os links como elementos de bloco para ocuparem todo o espaço horizontal disponível */
+  display: inline-block; /* Define os links como elementos de bloco para ocuparem todo o espaço horizontal disponível */
   padding: 8px 16px; /* Adiciona espaçamento interno aos links */
   text-decoration: none; /* Remove a decoração de texto padrão (sublinhado) */
   color: #333; /* Define a cor do texto dos links */
@@ -45,7 +45,7 @@ margin: 7px 5px 0 0;
 
 /* PADRONIZAÇÃO DA TAG FORM */
 form{
-  background-color: rgb(205, 191, 211);
+  background-color: rgb(192, 152, 209);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
@@ -66,7 +66,7 @@ input[type="text"],
   input[type="date"],
   input[type="file"],
   textarea {
-    background-color: #e0dceb;
+    background-color: #ffffff;
     border: none;
     border-radius: 3px;
     box-sizing: border-box;
@@ -83,6 +83,8 @@ input[type="text"],
 
 table {
   border-collapse: collapse;
+  border: 1px solid black;
+  padding: 8px;
   text-align: center;
   color: #eee;
   text-decoration: #bbb0be;

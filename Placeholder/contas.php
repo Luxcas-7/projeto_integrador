@@ -1,6 +1,12 @@
 <?php
 include("conectadb.php");
 
+session_start();
+$nomeusuario = $_SESSION["nomeusuario"];
+
+$sql = "SELECT * FROM aulas WHERE au_ativo = 's'";
+$retorno = mysqli_query($link, $sql);
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $nome = $_POST['nome'];
     $cargo = $_POST['cargo'];
@@ -21,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         VALUES('$nome', '$cargo', '$numero', '$senha', 's')";
         mysqli_query($link, $sql);
         echo"<script>window.alert('USUARIO CADASTRADO');</script>";
-        echo"<script>window.location.href='aulas.php';</script>";
+        echo"<script>window.location.href='historicoaulas.php';</script>";
     }
 }
 
@@ -32,16 +38,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
+    <link rel="stylesheet" href="css\estiloadm.css">
     <title>CADASTRO DE USUARIOS</title>
 </head>
 <body>
     <div>
         <ul class="menu">
-            <li><a href="contas.php">CADASTRA USUARIO</a></li>
-            <li><a href="aulas.php">AULAS</a></li>
-            <li><a href="listaaulas.php">LISTA DE AULAS</a></li>
-            <li class="menuloja"><a href="./areacliente/loja.php"> GOJO >>>> SUKUNA </a></li>
+            <li><a href="contas.php">CADASTRO</a></li>
+            <li><a href="listacontas.php">LISTA DE CONTAS</a></li>
+            <li><a href="registro.php">REGISTRO</a></li>
+            <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>            
+            <?php
+            if ($nomeusuario != null) {
+            ?>
+
+                <li class="profile">OLA <?= strtoupper($nomeusuario) ?></li>
+            <?php
+            } 
+            else{
+                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='login.php';</script>";
+            }
+            ?>
+            <li class="menuloja"><a href="logout.php">SAIR</a></li>
         </ul>
     </div>
 
