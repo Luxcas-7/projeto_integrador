@@ -4,37 +4,36 @@ include("conectadb.php");
 session_start();
 $nomeusuario = $_SESSION["nomeusuario"];
 
-$id = $_GET['id'];
+$id = isset($_GET['id'])? $_GET['id'] : "";
 $sql = "SELECT * FROM aulas WHERE au_id = '$id'";
 
 $retorno = mysqli_query($link, $sql);
 
 #PREENCHENDO O ARRAY SEMPRE
-while ($tbl = mysqli_fetch_array($retorno)) {
+while ($tbl = mysqli_fetch_array($retorno)) 
+{
     $id = $tbl[0];
     $responsavel = $tbl[1];
     $data = $tbl[2];
     $topico = $tbl[3];
     $conteudo = $tbl[4];
-    $ativo = $tbl[5];
 }
 
 #USUARIO CLICA NO BOTÃO SALVAR
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
     $id = $_POST['id'];
     $responsavel = $_POST['responsavel'];
     $data = $_POST['data'];
     $topico = $_POST['topico'];
     $conteudo = $_POST['conteudo'];
-    $ativo = $_POST['ativo'];
 
-    $sql = "UPDATE aulas SET au_respon = '$responsavel', au_data = '$data', au_topico = '$topico', au_conteudo = '$conteudo', au_ativo = '$ativo'
+    $sql = "UPDATE aulas SET au_respon = '$responsavel', au_data = '$data', au_topico = '$topico', au_conteudo = '$conteudo'
     WHERE au_id = '$id'";
-    echo ($sql);
     mysqli_query($link, $sql);
 
-    // echo "<script>window.alert('USUARIO ALTERADO COM SUCESSO!');</script>";
-    // echo "<script>window.location.href='admhome.php';</script>";
+    echo "<script>window.alert('AULA ALTERADO COM SUCESSO!');</script>";
+    echo "<script>window.location.href='historicoaulas.php';</script>";
 }
 
 
@@ -58,12 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <li><a href="registro.php">REGISTRO</a></li>
             <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>
             <?php
-            if ($nomeusuario != null) {
+            if ($nomeusuario != null) 
+            {
             ?>
 
                 <li class="profile">OLÁ <?= strtoupper($nomeusuario) ?></li>
             <?php
-            } else {
+            } 
+            else 
+            {
                 echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='login.php';</script>";
             }
             ?>
@@ -90,11 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label>CONTEUDO</label>
             <textarea name="conteudo" id="conteudo" rows="5" resize="none" ><?=$conteudo?></textarea>
             <br>
-
-            <input type="radio" name="ativo" value="s" <?=$ativo =="s"?"checked":""?>>ATIVO
-            <br>
-
-            <input type="radio" name="ativo" value="n" <?=$ativo =="n"?"checked":""?>>INATIVO
 
             <input type="submit" name="salvar" id="salvar" value="SALVAR">
 

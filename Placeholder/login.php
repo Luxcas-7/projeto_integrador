@@ -4,7 +4,8 @@
     #SOLICITA O ARQUIVO CONECTADB
     include("conectadb.php");
     #EVENTO APÓS O CLICK NO BOTÃO LOGAR
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
         $nome = $_POST['nome'];
         $senha = $_POST['senha'];
 
@@ -14,14 +15,16 @@
         $retorno = mysqli_query($link, $sql);
 
         #TODO RETORNO DO BANCO É RETORNADO EM ARRAY EM PHP
-        while($tbl = mysqli_fetch_array($retorno)){
+        while($tbl = mysqli_fetch_array($retorno))
+        {
             $cont = $tbl[0];
         }
         
         #VERIFICA SE USUARIO EXISTE
         #SE $CONT == 1 ELE EXISTE E FAZ LOGIN
         #SE $CONT == 0 ELE NÃO EXISTE E USUARIO NÃO ESTÁ CADASTRADO
-        if($cont == 1){
+        if($cont == 1)
+        {
             $sql = "SELECT * FROM contas WHERE con_nome = '$nome' 
             AND con_senha = '$senha' AND con_ativo = 's'";
             $_SESSION['nomeusuario'] = $nome;
@@ -29,7 +32,8 @@
             #DIRECIONA USUARIO PARA O ADM
             echo"<script>window.location.href='admhome.php';</script>";
         }
-        else{
+        else
+        {
             echo"<script>window.alert('USUARIO OU SENHA INCORRETO');</script>";
         }
     }
