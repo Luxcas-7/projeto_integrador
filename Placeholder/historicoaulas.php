@@ -102,7 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <th>TOPICO</th>
                     <th>CONTEUDO</th>
                     <th>DADOS</th>
-                    <th>EXCLUIR</th>
                 
                 </tr>
 
@@ -132,14 +131,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                             <td><a href="alteraaulas.php?id=<?= $tbl[0]?>">
 
                             <input type="button" value="ALTERAR DADOS"></a></td>
-                            
-                            <td>
-
-                                <input type="button" value="DELETAR DADOS" 
-                                onclick = "window.open('deleteaulas.php?id=<?= $tbl[0]?>', '_blank', 
-                                style = resizable='yes', top='200', width='200', height='200')">
-
-                            </td>
 
                         </tr>
 

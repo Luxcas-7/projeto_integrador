@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $retorno = mysqli_query($link, $sql);
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         <div class="container">
 
-        <br>
+            <br>
+
             <table border="1">
 
                 <tr style="background-color: rgb(192, 100, 231);">
@@ -120,7 +122,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         </div>
 
+
     </div>
+
+    <br>
+
+    <form action="reset.php" method="post">
+
+        <div>
+            <center>
+            
+            <input type="submit" name="reset" id="reset" value="RESET">
+
+            <input type="button" value="SORTEAR"
+            onclick="window.open('sorteio.php', '_blank', 
+            style = resizable='yes', top='200', width='200', height='200')"> 
+
+            </center>
+        </div>
+
+    </form>
 
 </body>
 </html>
