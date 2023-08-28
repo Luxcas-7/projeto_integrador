@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 ?>
                     <tr>
                         
-                        <td>    
+                        <td style="word-break: break-word">    
                         
                             <?= $tbl[4]?>
 

@@ -108,7 +108,7 @@ $nome = mysqli_query($link, $conta);
             <br>
 
             <label>CONTEUDO</label>
-            <textarea name="conteudo" id="conteudo" rows="5" resize="none"></textarea>
+            <textarea name="conteudo" id="conteudo" rows="10" resize="none"></textarea>
             <br>
 
             <input type="submit" name="cadastrar" id="cadastrar" value="CADASTRAR">            

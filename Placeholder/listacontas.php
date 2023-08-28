@@ -98,6 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <th>NOME</th>
                     <th>CARGO</th>
                     <th>NUMERO</th>
+                    <th>ALTERAR</th>
+                    <th>DELETAR</th>
                 </tr>
 
                 <?php
@@ -112,17 +114,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
                         <td><?= $tbl[3]?></td>
 
-                    </tr>
+                        <td><a href="alteracontas.php?id=<?= $tbl[0]?>">
 
+                        <input type="button" value="ALTERAR CONTAS"></a></td>
+
+                        <td>
+                            <form action="deletarcontas.php?id=<?= $tbl[0]?>" method="post" 
+                            style="background-color:#ddd;
+                            border-right: 0px;
+                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                            margin:auto;
+                            margin-left:70px;
+                            padding: 0px;
+                            width: 0px">
+
+                                <div>
+                                    <input type="submit" name="deletar" id="deletar" value="DELETAR" >                    
+                                </div> 
+                                
+                            </form>
+
+                        </td>
+
+                    </tr>
                 <?php
                     }
                 ?>
-
             </table>
-
         </div>
-
-
     </div>
 
     <br>
@@ -131,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         <div>
             <center>
-            
+        
             <input type="submit" name="reset" id="reset" value="RESET">
 
             <input type="button" value="SORTEAR"

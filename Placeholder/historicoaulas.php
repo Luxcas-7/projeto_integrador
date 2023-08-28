@@ -95,13 +95,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <input id="gfg" type="text" placeholder="Procure por aqui:" style="background-color: #ffffff; border: none; border-radius: 3px; box-sizing: border-box; display: block; font-size: 16px; margin-bottom: 10px; margin-left: 160px; padding: 10px; width: 1265px;">
         <br>
             <table border="1" class="display dataTable no-footer">
-                <tr style="background-color: rgb(192, 100, 231);">
+                <tr style="background-color: rgb(192, 100, 231)">
 
                     <th>NOME</th>
                     <th>DATA</th>
                     <th>TOPICO</th>
                     <th>CONTEUDO</th>
                     <th>DADOS</th>
+                    <th>DELETAR</th>
                 
                 </tr>
 
@@ -123,14 +124,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                             <td>    
                             
                                 <input type="button" value="CONTEUDO COMPLETO" 
-                                onclick="window.open('namarra.php?id=<?= $tbl[0]?>', '_blank', 
-                                style = resizable='yes', top='200', width='200', height='200')">
+                                onclick="window.open('namarra.php?id=<?= $tbl[0]?>', '_Blank', 
+                                'resizable=no top=300px width=300px height=300px')">
 
                             </td>
 
                             <td><a href="alteraaulas.php?id=<?= $tbl[0]?>">
 
                             <input type="button" value="ALTERAR DADOS"></a></td>
+
+                            <td>
+
+                                <form action="deletaraula.php?id=<?= $tbl[0]?>" method="post" 
+                                style="background-color:#ddd;
+                                border-right: 0px;
+                                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                                margin:auto;
+                                margin-left:27px;
+                                padding: 0px;
+                                width: 0px ">
+
+                                    <div>
+
+                                    <input type="submit" name="deletar" id="deletar" value="DELETAR">
+                                        
+                                    </div> 
+
+                                </form>
+
+                            </td>
 
                         </tr>
 

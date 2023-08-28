@@ -8,35 +8,20 @@ $nomeusuario = $_SESSION["nomeusuario"];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-    $SBS = "SELECT COUNT(con_id) FROM contas WHERE con_ativo = 's'";
-    $retorno = mysqli_query($link, $SBS);
+    $SBS = "SELECT (con_nome) FROM contas WHERE con_ativo = 's' AND con_cargo = 'Aluno'";
+    $retorno = mysqli_query($link,$SBS);
 
-    
+    // while ($tbl = mysqli_fetch_array($retorno)) {
+    //     $seq = ($tbl[0]);
 
-    while ($tbl = mysqli_fetch_array($retorno)) {
-        $seq = ($tbl[0]);
-
-        $for = 1;
-
-        while ($for != 6) {
-            $random = rand(1, $seq);
-            $clk="SELECT con_cargo FROM contas WHERE con_id='$random'";
-            $cont= mysqli_query($link, $clk);
-            if($cont = "con_cargo = 'Contribuinte'")
-            {
-                
-            }
-            else{
-                $up = "UPDATE contas SET con_cargo = 'Contribuinte' WHERE con_id = '$random' AND con_cargo = 'Aluno'";
-                mysqli_query($link, $up);
-                $for++;
-            }
-            
-        }
-
-        echo"<script>window.alert('ALUNOS SELECIONADOS');window.close();</script>";
-    }
-    
+    //     $random = rand(1, $seq);
+    //     $contri = "SELECT con_nome FROM contas WHERE con_id = $random";
+    //     $nome = mysqli_query($link, $contri);
+    //     while($tbln = mysqli_fetch_array($nome)){
+    //         echo($tbln[0]);
+    //     }
+    //     // echo "<script>window.alert('ALUNOS SELECIONADOS');window.close();</script>";
+    // }
 }
 ?>
 
@@ -55,9 +40,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <form action="sorteio.php" method="post">
 
-        <div>
-            <center> <input type="submit" name="sorteio" id="sorteio" value="SORTEAR"> </center>
-        </div>
+        <?php
+            while($tbl = mysqli_fetch_array($retorno))
+            {
+                $random = rand(1, $seq);
+        ?>
+
+            <div>
+                <center> <input type="submit" name="sorteio" id="sorteio" value="SORTEAR"> </center>
+            </div>
+
+        <?php
+            }
+        ?>
 
     </form>
 

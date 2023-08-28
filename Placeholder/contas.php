@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         VALUES('$nome', '$cargo', '$numero', '$senha', 's')";
         mysqli_query($link, $sql);
         echo"<script>window.alert('USUARIO CADASTRADO');</script>";
-        echo"<script>window.location.href='historicoaulas.php';</script>";
+        echo"<script>window.location.href='listacontas.php';</script>";
     }
 }
 
