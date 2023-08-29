@@ -98,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <th>NOME</th>
                     <th>CARGO</th>
                     <th>NUMERO</th>
+                    <!-- <th>TORNAR CONTRIBUINTE</th> -->
                     <th>ALTERAR</th>
                     <th>DELETAR</th>
                 </tr>
@@ -113,37 +114,73 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                         <td><?= $tbl[2]?></td>
 
                         <td><?= $tbl[3]?></td>
+                        <!-- 
+                        <td>
+                            <form action="sorteio.php?id=<?= $tbl[0]?>" method="post" 
+                            style="background-color:#ddd;
+                            border-right: 0px;
+                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                            margin:auto;
+                            margin-left:95px;
+                            padding: 0px;
+                            width: 0px">
+
+                                <div>
+                                    <input type="submit" name="tornar" id="tornar" value="TORNAR CONTRIBUINTE" >                    
+                                </div> 
+                                
+                            </form>
+
+                        </td> 
+                        -->
+
+                        <td><a href="alteracontas.php?id=<?= $tbl[0]?>">
+
+                        <input type="button" value="ALTERAR CONTAS"></a></td>
+
+                        <td>
+                            <form action="deletarcontas.php?id=<?= $tbl[0]?>" method="post" 
+                            style="background-color:#ddd;
+                            border-right: 0px;
+                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                            margin:auto;
+                            margin-left:35px;
+                            padding: 0px;
+                            width: 0px">
+
+                                <div>
+                                    <input type="submit" name="deletar" id="deletar" value="DELETAR" >                    
+                                </div> 
+                                
+                            </form>
+
+                        </td>
 
                     </tr>
-
                 <?php
                     }
                 ?>
-
             </table>
-
         </div>
-
-
     </div>
 
     <br>
 
-    <form action="reset.php" method="post">
+    <div>
 
-        <div>
-            <center>
+        <form action="reset.php" method="post">
+
+            <div>
+                <center>
             
-            <input type="submit" name="reset" id="reset" value="RESET">
+                <input type="submit" name="reset" id="reset" value="RESET">
 
-            <input type="button" value="SORTEAR"
-            onclick="window.open('sorteio.php', '_blank', 
-            style = resizable='yes', top='200', width='200', height='200')"> 
+                </center>
+            </div>
 
-            </center>
-        </div>
+        </form>
 
-    </form>
+    </div>
 
 </body>
 </html>
