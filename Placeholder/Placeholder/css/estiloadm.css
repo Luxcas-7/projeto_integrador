@@ -1,5 +1,5 @@
 html {
-  background-color: hwb(295 51% 23%); /* Define a cor de fundo do menu */
+  background-color: hwb(204 13% 47%); /* Define a cor de fundo do menu */
 }
 
 .menu {
@@ -7,7 +7,7 @@ html {
   margin: 0;
   padding: 0;
   background-color: hwb(0 95% 5%); /* Define a cor de fundo do menu */
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 
 .menu li {
@@ -44,16 +44,16 @@ html {
 
 /* PADRONIZAÇÃO DA TAG FORM */
 form {
-  background-color: rgb(192, 152, 209);
+  background-color: rgb(90, 50, 107);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(34, 27, 128, 0.1);
   margin: 20px auto;
   padding: 20px;
   width: 300px;
 }
 
 form#radio{
-  background-color: rgb(192, 152, 209);
+  background-color: rgb(106, 91, 172);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin: 20px auto;

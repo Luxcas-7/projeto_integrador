@@ -49,10 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <body>
     <div>
         <ul class="menu">
-            <li><a href="contas.php">CADASTRO</a></li>
-            <li><a href="listacontas.php">LISTA DE CONTAS</a></li>
-            <li><a href="registro.php">REGISTRO</a></li>
-            <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>
+            <li><a href="listacontasrepresentante.php">LISTA DE CONTAS</a></li>
+            <li><a href="registrorepresentante.php">REGISTRO</a></li>
+            <li><a href="historicoaulasrepresentante.php">HISTORICO DE AULAS</a></li>
             <?php
             if ($nomeusuario != null)
             {
@@ -72,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     <div id="background">
 
-        <form action="listacontas.php" method="post" id="radio">
+        <form action="listacontasrepresentante.php" method="post" id="radio">
 
             <input type="radio" name="cargo" class="radio" value="Aluno" required 
             onclick="submit()" <?=$cargo =='Aluno'?"checked":""?>>ALUNOS
@@ -98,9 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <th>NOME</th>
                     <th>CARGO</th>
                     <th>NUMERO</th>
-                    <!-- <th>TORNAR CONTRIBUINTE</th> -->
                     <th>ALTERAR</th>
-                    <th>DELETAR</th>
+
                 </tr>
 
                 <?php
@@ -114,47 +112,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                         <td><?= $tbl[2]?></td>
 
                         <td><?= $tbl[3]?></td>
-                        <!-- 
-                        <td>
-                            <form action="sorteio.php?id=<?= $tbl[0]?>" method="post" 
-                            style="background-color:#ddd;
-                            border-right: 0px;
-                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-                            margin:auto;
-                            margin-left:95px;
-                            padding: 0px;
-                            width: 0px">
 
-                                <div>
-                                    <input type="submit" name="tornar" id="tornar" value="TORNAR CONTRIBUINTE" >                    
-                                </div> 
-                                
-                            </form>
-
-                        </td> 
-                        -->
-
-                        <td><a href="alteracontas.php?id=<?= $tbl[0]?>">
+                        <td><a href="alteracontasrepresentante.php?id=<?= $tbl[0]?>">
 
                         <input type="button" value="ALTERAR CONTAS"></a></td>
-
-                        <td>
-                            <form action="deletarcontas.php?id=<?= $tbl[0]?>" method="post" 
-                            style="background-color:#ddd;
-                            border-right: 0px;
-                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-                            margin:auto;
-                            margin-left:70px;
-                            padding: 0px;
-                            width: 0px">
-
-                                <div>
-                                    <input type="submit" name="deletar" id="deletar" value="DELETAR" >                    
-                                </div> 
-                                
-                            </form>
-
-                        </td>
 
                     </tr>
                 <?php
