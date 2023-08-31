@@ -1,5 +1,5 @@
 <?php
-include("conectadb.php");
+include("../conectadb.php");
 
 session_start();
 $nomeusuario = $_SESSION["nomeusuario"];
@@ -27,12 +27,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         VALUES('$responsavel', '$data', '$topico', '$conteudo', 's')";
         mysqli_query($link, $sql);
         echo"<script>window.alert('AULA REGISTRADA');</script>";
-        echo"<script>window.location.href='historicoaulascontribuinte.php';</script>";
+        echo"<script>window.location.href='historicoaulasrepresentante.php';</script>";
     }
 }
 
-$conta = "SELECT * FROM contas WHERE con_ativo ='s'";
-$nome = mysqli_query($link, $conta);
+$materia = "SELECT * FROM materias WHERE mat_ativo ='s'";
+$materias = mysqli_query($link, $materia);
 ?>
 
 <!DOCTYPE html>
@@ -40,15 +40,15 @@ $nome = mysqli_query($link, $conta);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
+    <link rel="stylesheet" href="../css/estiloadm.css">
     <title>REGISTROS</title>
 </head>
 <body>
     <div>
         <ul class="menu">
-            <li><a href="listacontascontribuinte.php">LISTA DE CONTAS</a></li>
-            <li><a href="registrocontribuinte.php">REGISTRO</a></li>
-            <li><a href="historicoaulascontribuinte.php">HISTORICO DE AULAS</a></li>
+            <li><a href="listacontasrepresentante.php">LISTA DE CONTAS</a></li>
+            <li><a href="registrorepresentante.php">REGISTRO</a></li>
+            <li><a href="historicoaulasrepresentante.php">HISTORICO DE AULAS</a></li>
             <?php
             if ($nomeusuario != null) 
             {
@@ -60,29 +60,18 @@ $nome = mysqli_query($link, $conta);
             }
             else
             {
-                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');
-                        window.location.href='login.php';</script>";
+                echo "<script>window.alert('USUARIO NÃO AUTENTICADO'); window.location.href='../login.php';</script>";
             }
             ?>
-            <li class="menuloja"><a href="logout.php">SAIR</a></li>
+            <li class="menuloja"><a href="../logout.php">SAIR</a></li>
         </ul>
     </div>
 
     <div>
-        <form action="registrocontribuinte.php" method="post">
+        <form action="registrorepresentante.php" method="post">
 
             <label>RESPONSAVEL PELO REGISTRO</label>
-            <input type="text" name="responsavel" id="responsavel" list="ListaNome">
-                <datalist id="ListaNome">
-                    <?php
-                        while($tbl = mysqli_fetch_array($nome))
-                        {
-                    ?>
-                        <option><?= $tbl[1]?></option>
-                    <?php
-                    } 
-                    ?>
-                </datalist>
+            <input type="text" name="responsavel" id="responsavel" value="<?=$nomeusuario?>" disabled="">
             <br>
 
             <label>DATA REGISTRO</label>
@@ -92,17 +81,14 @@ $nome = mysqli_query($link, $conta);
             <label>TOPICO DA AULA</label>
             <input type="text" name="topico" id="nome" list="ListaTopico">
                 <datalist id="ListaTopico">
-                    <option>Matematica</option>
-                    <option>Portugues</option>
-                    <option>Fisica</option>
-                    <option>Quimica</option>
-                    <option>Biologia</option>
-                    <option>Historia</option>
-                    <option>Geografia</option>
-                    <option>Artes</option>
-                    <option>Educação Fisica</option>
-                    <option>Sociologia</option>
-                    <option>Filosofia</option>
+                <?php
+                    while($tbl = mysqli_fetch_array($materias))
+                    {
+                ?>
+                    <option><?= $tbl[1]?></option>
+                <?php
+                } 
+                ?>
                 </datalist>
             <br>
 

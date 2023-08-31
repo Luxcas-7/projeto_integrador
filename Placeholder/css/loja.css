@@ -1,6 +1,6 @@
 /* HEADER */
 header {
-    background-color:  hwb(295 51% 23%);
+    background-color:  hwb(236 51% 23%);
     padding: 10px;
     border-radius: 3px;
 
@@ -89,7 +89,7 @@ header {
     outline: 0;
     color: rgb(100, 5, 45);
     border: 0px;
-    background-color: hwb(295 51% 23%);
+    background-color: hwb(300 82% 16%);
     text-align: center;
     cursor: pointer;
     width: 100%;

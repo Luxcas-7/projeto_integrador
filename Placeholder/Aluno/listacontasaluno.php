@@ -1,6 +1,6 @@
 <?php
 
-include("conectadb.php");
+include("../conectadb.php");
 
 session_start();
 $nomeusuario = $_SESSION["nomeusuario"];
@@ -43,15 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
+    <link rel="stylesheet" href="../css/estiloadm.css">
     <title>LISTA DE CONTAS</title>
 </head>
 <body>
     <div>
         <ul class="menu">
-            <li><a href="listacontascontribuinte.php">LISTA DE CONTAS</a></li>
-            <li><a href="registrocontribuinte.php">REGISTRO</a></li>
-            <li><a href="historicoaulascontribuinte.php">HISTORICO DE AULAS</a></li>
+            <li><a href="listacontasaluno.php">LISTA DE CONTAS</a></li>
+            <li><a href="historicoaulasaluno.php">HISTORICO DE AULAS</a></li>
             <?php
             if ($nomeusuario != null)
             {
@@ -62,16 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             } 
             else
             {
-                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='login.php';</script>";
+                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='../login.php';</script>";
             }
             ?>
-            <li class="menuloja"><a href="logout.php">SAIR</a></li>
+            <li class="menuloja"><a href="../logout.php">SAIR</a></li>
         </ul>
     </div>
 
     <div id="background">
 
-        <form action="listacontascontribuinte.php" method="post" id="radio">
+        <form action="listacontasaluno.php" method="post" id="radio">
 
             <input type="radio" name="cargo" class="radio" value="Aluno" required 
             onclick="submit()" <?=$cargo =='Aluno'?"checked":""?>>ALUNOS
@@ -97,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <th>NOME</th>
                     <th>CARGO</th>
                     <th>NUMERO</th>
+                    <!-- <th>TORNAR CONTRIBUINTE</th> -->
                 </tr>
 
                 <?php

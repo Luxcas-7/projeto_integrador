@@ -1,5 +1,5 @@
 <?php
-include("conectadb.php");
+include("../conectadb.php");
 
 session_start();
 $nomeusuario = $_SESSION["nomeusuario"];
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     mysqli_query($link, $sql);
 
     echo "<script>window.alert('AULA ALTERADO COM SUCESSO!');</script>";
-    echo "<script>window.location.href='historicoaulas.php';</script>";
+    echo "<script>window.location.href='historicoaulasrepresentante.php';</script>";
 }
 
 
@@ -45,17 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
+    <link rel="stylesheet" href="../css/estiloadm.css">
     <title>ALTERA AULAS</title>
 </head>
 
 <body>
     <div>
         <ul class="menu">
-            <li><a href="contas.php">CADASTRO</a></li>
-            <li><a href="listacontas.php">LISTA DE CONTAS</a></li>
-            <li><a href="registro.php">REGISTRO</a></li>
-            <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>
+            <li><a href="listacontasrepresentante.php">LISTA DE CONTAS</a></li>
+            <li><a href="registrorepresentante.php">REGISTRO</a></li>
+            <li><a href="historicoaulasrepresentante.php">HISTORICO DE AULAS</a></li>
             <?php
             if ($nomeusuario != null) 
             {
@@ -66,15 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             } 
             else 
             {
-                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='login.php';</script>";
+                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='../login.php';</script>";
             }
             ?>
-            <li class="menuloja"><a href="logout.php">SAIR</a></li>
+            <li class="menuloja"><a href="../logout.php">SAIR</a></li>
         </ul>
     </div>
 
     <div>
-        <form action="alteraaulas.php" method="post">
+        <form action="alteraaulasrepresentante.php" method="post">
             <input type="hidden" name="id" value="<?=$id?>">
 
             <label>RESPONSAVEL PELO REGISTRO</label>

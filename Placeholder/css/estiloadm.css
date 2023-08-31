@@ -1,5 +1,5 @@
 html {
-  background-color: hwb(295 51% 23%); /* Define a cor de fundo do menu */
+  background-color: #507fa5; /* Define a cor de fundo do menu */
 }
 
 .menu {
@@ -7,7 +7,7 @@ html {
   margin: 0;
   padding: 0;
   background-color: hwb(0 95% 5%); /* Define a cor de fundo do menu */
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 
 .menu li {
@@ -37,6 +37,12 @@ html {
   margin-left: 10%;
 }
 
+th{
+
+  background-color: #103a70;
+
+}
+
 .profile {
   float: right;
   margin: 7px 5px 0 0;
@@ -44,16 +50,16 @@ html {
 
 /* PADRONIZAÇÃO DA TAG FORM */
 form {
-  background-color: rgb(192, 152, 209);
+  background-color: rgba(23, 48, 119, 0.438);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
   margin: 20px auto;
   padding: 20px;
   width: 300px;
 }
 
 form#radio{
-  background-color: rgb(192, 152, 209);
+  background-color: rgb(106, 91, 172);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
@@ -93,7 +99,7 @@ table {
   padding: 0px;
   text-align: center;
   color: #000000;
-  text-decoration: #bbb0be;
+  text-decoration: #1b2838;
   width: 70%;
   margin: auto;
 }

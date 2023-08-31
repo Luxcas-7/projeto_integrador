@@ -1,6 +1,6 @@
 <?php
 
-include("conectadb.php");
+include("../conectadb.php");
 
 session_start();
 $nomeusuario = $_SESSION["nomeusuario"];
@@ -61,14 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
+    <link rel="stylesheet" href="../css/estiloadm.css">
     <title>HISTORICO DE AULAS</title>
 </head>
 <body>
     <div>
         <ul class="menu">
-            <li><a href="listacontasaluno.php">LISTA DE CONTAS</a></li>
-            <li><a href="historicoaulasaluno.php">HISTORICO DE AULAS</a></li>
+            <li><a href="listacontascontribuinte.php">LISTA DE CONTAS</a></li>
+            <li><a href="registrocontribuinte.php">REGISTRO</a></li>
+            <li><a href="historicoaulascontribuinte.php">HISTORICO DE AULAS</a></li>
             <?php
             if ($nomeusuario != null) 
             {
@@ -79,10 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             } 
             else
             {
-                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='login.php';</script>";
+                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='../login.php';</script>";
             }
             ?>
-            <li class="menuloja"><a href="logout.php">SAIR</a></li>
+            <li class="menuloja"><a href="../logout.php">SAIR</a></li>
         </ul>
     </div>
 
@@ -99,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <th>DATA</th>
                     <th>TOPICO</th>
                     <th>CONTEUDO</th>
+                    <th>DADOS</th>
                 
                 </tr>
 
@@ -124,6 +126,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                 'resizable=no top=300px width=300px height=300px')">
 
                             </td>
+
+                            <td><a href="alteraaulascontribuinte.php?id=<?= $tbl[0]?>">
+
+                            <input type="button" value="ALTERAR DADOS"></a></td>
 
                         </tr>
 

@@ -14,26 +14,19 @@ $retorno = mysqli_query($link, $sql);
 #PREENCHENDO O ARRAY SEMPRE
 while ($tbl = mysqli_fetch_array($retorno)) {
     $id = $tbl[0];
-    $nome = $tbl[1];
-    $cargo = $tbl[2];
-    $numero = $tbl[3];
-    $senha = $tbl[4];
+    $materia = $tbl[1];
 }
 
 #USUARIO CLICA NO BOTÃO SALVAR
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
-    $nome = $_POST['nome'];
-    $cargo = $_POST['cargo'];
-    $numero = $_POST['numero'];
-    $senha = $_POST['senha'];
+    $materia = $_POST['materia'];
 
-    $sql = "UPDATE contas SET con_nome = '$nome', con_cargo = '$cargo', con_numero = '$numero', con_senha = '$senha'
-    WHERE con_id = '$id'";
+    $sql = "UPDATE materias SET con_mat = '$materia' WHERE mat_id = '$id'";
     mysqli_query($link, $sql);
 
-    echo "<script>window.alert('CONTA ALTERADA COM SUCESSO!');</script>";
-    echo "<script>window.location.href='listacontas.php';</script>";
+    echo "<script>window.alert('MATERIA ALTERADA COM SUCESSO!');</script>";
+    echo "<script>window.location.href='materias.php';</script>";
 }
 ?>
 
@@ -43,13 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/estiloadm.css">
-    <title>ALTERA CONTAS</title>
+    <title>ALTERA MATERIA</title>
 </head>
 <body>
     <div>
         <ul class="menu">
             <li><a href="contas.php">CADASTRO</a></li>
             <li><a href="listacontas.php">LISTA DE CONTAS</a></li>
+            <li><a href="materias.php">MATERIAS</a></li>
             <li><a href="registro.php">REGISTRO</a></li>
             <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>
             <?php
@@ -66,29 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <div>
-        <form action="alteracontas.php" method="post">
+        <form action="alteramateria.php" method="post">
             <input type="hidden" name="id" value="<?= $id ?>">
 
-            <label>NOME DO USUARIO</label>
-            <input type="text" name="nome" id="nome" value="<?= $nome ?>" required>
-            <br>
+            <label><?= $tbl[1]?></label>
 
-            <label>CARGO DO USUARIO</label>
-            <input type="text" name="cargo" id="cargo" value="<?= $cargo ?>" list="ListaCargo" required>
-            <datalist id="ListaCargo">
-                <option>Aluno</option>
-                <option>Contribuinte</option>
-                <option>Representante</option>
-                <option>Docente</option>
-            </datalist>
-            <br>
-
-            <label>NUMERO DO USUARIO</label>
-            <input type="number" name="numero" id="nome" value="<?= $numero ?>" required>
-            <br>
-
-            <label>SENHA</label>
-            <input type="password" name="senha" id="senha" value="<?= $senha ?>" >
+            <label>ALTERAR MATERIA</label>
+            <input type="text" name="materia" id="materia"  required>
             <br>
 
             <input type="submit" name="salvar" id="salvar" value="SALVAR">

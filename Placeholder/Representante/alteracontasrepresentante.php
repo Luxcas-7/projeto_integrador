@@ -1,6 +1,6 @@
 <?php
 
-include("conectadb.php");
+include("../conectadb.php");
 
 session_start();
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
+    <link rel="stylesheet" href="../css/estiloadm.css">
     <title>ALTERA CONTAS</title>
 </head>
 <body>
@@ -57,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <li class="profile">OLÁ <?= strtoupper($nomeusuario) ?></li>
             <?php
             } else {
-                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='login.php';</script>";
+                echo "<script>window.alert('USUARIO NÃO AUTENTICADO');window.location.href='../login.php';</script>";
             }
             ?>
-            <li class="menuloja"><a href="logout.php">SAIR</a></li>
+            <li class="menuloja"><a href="../logout.php">SAIR</a></li>
         </ul>
     </div>
 

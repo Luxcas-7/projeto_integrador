@@ -16,6 +16,7 @@ $nomeusuario = $_SESSION["nomeusuario"];
         <ul class="menu">
             <li><a href="contas.php">CADASTRO</a></li>
             <li><a href="listacontas.php">LISTA DE CONTAS</a></li>
+            <li><a href="materias.php">MATERIAS</a></li>
             <li><a href="registro.php">REGISTRO</a></li>
             <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>
             <?php

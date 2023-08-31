@@ -31,8 +31,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 
-$conta = "SELECT * FROM contas WHERE con_ativo ='s'";
-$nome = mysqli_query($link, $conta);
+$materia = "SELECT * FROM materias WHERE mat_ativo ='s'";
+$materias = mysqli_query($link, $materia);
 ?>
 
 <!DOCTYPE html>
@@ -48,6 +48,7 @@ $nome = mysqli_query($link, $conta);
         <ul class="menu">
             <li><a href="contas.php">CADASTRO</a></li>
             <li><a href="listacontas.php">LISTA DE CONTAS</a></li>
+            <li><a href="materias.php">MATERIAS</a></li>
             <li><a href="registro.php">REGISTRO</a></li>
             <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>
             <?php
@@ -73,17 +74,7 @@ $nome = mysqli_query($link, $conta);
         <form action="registro.php" method="post">
 
             <label>RESPONSAVEL PELO REGISTRO</label>
-            <input type="text" name="responsavel" id="responsavel" list="ListaNome">
-                <datalist id="ListaNome">
-                    <?php
-                        while($tbl = mysqli_fetch_array($nome))
-                        {
-                    ?>
-                        <option><?= $tbl[1]?></option>
-                    <?php
-                    } 
-                    ?>
-                </datalist>
+            <input type="text" name="responsavel" id="responsavel" value="<?=$nomeusuario?>" disabled="">
             <br>
 
             <label>DATA REGISTRO</label>
@@ -93,17 +84,14 @@ $nome = mysqli_query($link, $conta);
             <label>TOPICO DA AULA</label>
             <input type="text" name="topico" id="nome" list="ListaTopico">
                 <datalist id="ListaTopico">
-                    <option>Matematica</option>
-                    <option>Portugues</option>
-                    <option>Fisica</option>
-                    <option>Quimica</option>
-                    <option>Biologia</option>
-                    <option>Historia</option>
-                    <option>Geografia</option>
-                    <option>Artes</option>
-                    <option>Educação Fisica</option>
-                    <option>Sociologia</option>
-                    <option>Filosofia</option>
+                <?php
+                    while($tbl = mysqli_fetch_array($materias))
+                    {
+                ?>
+                    <option><?= $tbl[1]?></option>
+                <?php
+                } 
+                ?>
                 </datalist>
             <br>
 

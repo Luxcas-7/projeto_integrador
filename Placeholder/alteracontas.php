@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     mysqli_query($link, $sql);
 
     echo "<script>window.alert('CONTA ALTERADA COM SUCESSO!');</script>";
-    echo "<script>window.location.href='historicoaulas.php';</script>";
+    echo "<script>window.location.href='listacontas.php';</script>";
 }
 ?>
 
@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <ul class="menu">
             <li><a href="contas.php">CADASTRO</a></li>
             <li><a href="listacontas.php">LISTA DE CONTAS</a></li>
+            <li><a href="materias.php">MATERIAS</a></li>
             <li><a href="registro.php">REGISTRO</a></li>
             <li><a href="historicoaulas.php">HISTORICO DE AULAS</a></li>
             <?php
@@ -77,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" name="cargo" id="cargo" value="<?= $cargo ?>" list="ListaCargo" required>
             <datalist id="ListaCargo">
                 <option>Aluno</option>
+                <option>Contribuinte</option>
                 <option>Representante</option>
                 <option>Docente</option>
             </datalist>
