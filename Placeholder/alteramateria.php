@@ -61,16 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div>
         <form action="alteramateria.php" method="post">
-            <input type="hidden" name="id" value="<?= $id ?>">
-
-            <label><?= $tbl[1]?></label>
-
+            
             <label>ALTERAR MATERIA</label>
             <input type="text" name="materia" id="materia"  required>
             <br>
 
             <input type="submit" name="salvar" id="salvar" value="SALVAR">
-
         </form>
     </div>
 </body>
